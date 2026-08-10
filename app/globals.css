@@ -133,4 +133,5 @@
 .work-result-card.demo .comparison-before{filter:grayscale(.72) brightness(.7) saturate(.65)}
 .review-avatar{object-fit:cover;object-position:center}
 
-@media(max-width:720px){.header .logo img{width:90px;height:56px}}
+.header .logo img{width:120px;height:72px}footer img{width:112px;height:70px}
+@media(max-width:720px){.header .logo img{width:98px;height:59px}}
