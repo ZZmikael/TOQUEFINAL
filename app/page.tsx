@@ -6,7 +6,7 @@ const services = [
   { name: "Detalhamento de motos", short: "Limpeza criteriosa das áreas visíveis e dos pontos que a lavagem comum não alcança." },
   { name: "Vitrificação", short: "Proteção para preservar o acabamento e facilitar os cuidados na rotina." },
   { name: "Polimento técnico", short: "Correção cuidadosa para recuperar brilho, profundidade e presença na pintura." },
-  { name: "Detalhamento automotivo", short: "O cuidado da Toque Final também para quem quer ver o carro bem tratado." },
+  { name: "Detalhamento automotivo", short: "O cuidado da Vdetalhes também para quem quer ver o carro bem tratado." },
 ];
 
 const weekdayTimes = ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00"];
@@ -102,15 +102,15 @@ export default function Home() {
 
   return <main>
     <header className="header">
-      <a href="#inicio" className="logo"><img src="/toque-final-logo.png" alt="Toque Final Estética Automotiva" /></a>
+      <a href="#inicio" className="logo"><img src="/v-detalhes-logo.png" alt="Vdetalhes Estética Automotiva" /></a>
       <nav className={menu ? "nav open" : "nav"}>
-        <a href="#sobre" onClick={() => setMenu(false)}>A Toque Final</a><a href="#servicos" onClick={() => setMenu(false)}>Tratamentos</a><a href="#resultados" onClick={() => setMenu(false)}>O cuidado</a><a href="#agenda" onClick={() => setMenu(false)}>Agendar</a>
+        <a href="#sobre" onClick={() => setMenu(false)}>A Vdetalhes</a><a href="#servicos" onClick={() => setMenu(false)}>Tratamentos</a><a href="#resultados" onClick={() => setMenu(false)}>O cuidado</a><a href="#agenda" onClick={() => setMenu(false)}>Agendar</a>
       </nav>
       <button className="header-btn" onClick={go}>FALAR SOBRE MINHA MOTO ↗</button><button className="hamb" onClick={() => setMenu(!menu)} aria-label="Abrir menu"><i /><i /></button>
     </header>
 
     <section id="inicio" className="hero"><div className="hero-image" /><div className="grain" /><div className="hero-copy enter">
-      <p className="eyebrow">ESTÉTICA ESPECIALIZADA EM MOTOS · MINAS NOVAS</p><h1>SUA MOTO<br />FALA POR VOCÊ.<br /><em>O ACABAMENTO TAMBÉM.</em></h1>
+      <p className="eyebrow">ESTÉTICA ESPECIALIZADA EM MOTOS · TURMALINA</p><h1>SUA MOTO<br />FALA POR VOCÊ.<br /><em>O ACABAMENTO TAMBÉM.</em></h1>
       <p>Não é sobre esconder a sujeira com brilho. É sobre tratar pintura, metais, plásticos e cada área exposta com o cuidado certo — para sua moto voltar a chamar atenção pelos motivos certos.</p>
       <button className="action" onClick={go}>QUERO CUIDAR DA MINHA MOTO <b>→</b></button></div>
       <div className="hero-numbers enter"><b>+1000<small>CLIENTES SATISFEITOS</small></b><b>4.104<small>SEGUIDORES NO INSTAGRAM</small></b></div>
@@ -128,7 +128,7 @@ export default function Home() {
 
     <section id="resultados" className="results section"><div className="results-intro enter"><div><p className="eyebrow black">O RESULTADO COMEÇA ANTES DO BRILHO</p><p className="body">O reflexo chama atenção. O cuidado bem-feito aparece na uniformidade, nos cantos limpos e na forma como cada material recupera presença.</p></div><h2>VOCÊ VÊ O BRILHO.<br /><em>A GENTE VÊ CADA ETAPA.</em></h2></div>
       <div className="result-showcase enter"><div className="result-main"><span>ACABAMENTO</span><div><b>PROTEÇÃO E PRESENÇA</b><small>PINTURA · METAIS · PLÁSTICOS · DETALHES</small></div></div><div className="result-side"><article><i>01</i><strong>CANTOS QUE A LAVAGEM COMUM IGNORA</strong></article><article><i>02</i><strong>ACABAMENTO SEM MAQUIAGEM</strong></article></div></div>
-      <div className="result-bar enter"><span>CUIDADO DE PONTA A PONTA</span><span>ATENÇÃO A CADA MATERIAL</span><span>TOQUE FINAL · MINAS NOVAS</span></div>
+      <div className="result-bar enter"><span>CUIDADO DE PONTA A PONTA</span><span>ATENÇÃO A CADA MATERIAL</span><span>VDETALHES · TURMALINA</span></div>
     </section>
 
     <section id="galeria-resultados" className="work-results-section" aria-labelledby="work-results-title" onMouseEnter={() => setResultsPaused(true)} onMouseLeave={() => setResultsPaused(false)} onFocusCapture={() => setResultsPaused(true)} onBlurCapture={() => setResultsPaused(false)}>
@@ -149,7 +149,7 @@ export default function Home() {
     </section>
 
     <section id="avaliacoes" className="reviews-section" aria-labelledby="reviews-title">
-      <div className="reviews-heading enter"><div><p className="eyebrow">AVALIAÇÕES</p><h2 id="reviews-title">QUEM VÊ O RESULTADO,<br /><em>ENTENDE O CUIDADO.</em></h2></div><p>Experiências de quem confiou a moto à Toque Final e viu o cuidado no resultado.<small>RELATOS DAS REDES SOCIAIS</small></p></div>
+      <div className="reviews-heading enter"><div><p className="eyebrow">AVALIAÇÕES</p><h2 id="reviews-title">QUEM VÊ O RESULTADO,<br /><em>ENTENDE O CUIDADO.</em></h2></div><p>Experiências de quem confiou a moto à Vdetalhes e viu o cuidado no resultado.<small>RELATOS DAS REDES SOCIAIS</small></p></div>
       <div className="reviews-marquee" aria-label="Avaliações em movimento contínuo">
         <div className="reviews-track">
           {["a", "b"].map((group) => <div className="reviews-group" key={group} aria-hidden={group === "b"}>{reviews.map((review) => <ReviewCard key={`${group}-${review.name}`} review={review} />)}</div>)}
@@ -167,7 +167,7 @@ export default function Home() {
 
     <section className="location"><div className="map">{mapConsent ? <iframe title="Mapa da Detalhes Estética Automotiva" src="https://www.google.com/maps?q=R.+Zuza+Cordeiro,+695+-+S%C3%A3o+Jo%C3%A3o+Batista,+Turmalina+-+MG,+39660-000&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" /> : <div className="map-consent"><p className="eyebrow">LOCALIZAÇÃO</p><h3>SUA MOTO<br />CHEGA AQUI.<br /><em>O CUIDADO COMEÇA.</em></h3><p>O mapa só é carregado quando você decide visualizá-lo.</p><button className="map-button" onClick={() => setMapConsent(true)}>VER NO MAPA <b>↗</b></button></div>}</div><div className="location-copy enter"><p className="eyebrow">DETALHES · TURMALINA</p><h2>TRAGA A MOTO.<br /><em>CONTE O QUE INCOMODA.</em></h2><address>R. Zuza Cordeiro, 695<br />São João Batista · Turmalina — MG<br />39660-000</address><div className="location-details"><span>WHATSAPP</span><b>(33) 99952-2052</b><span>ATENDIMENTO</span><b>Segunda a sábado · 08h às 18h</b></div><a href="https://www.google.com/maps/search/?api=1&query=R.+Zuza+Cordeiro,+695+-+S%C3%A3o+Jo%C3%A3o+Batista,+Turmalina+-+MG,+39660-000" target="_blank" rel="noreferrer">COMO CHEGAR ↗</a></div></section>
 
-    <footer><img src="/toque-final-logo.png" alt="Toque Final" /><p>Sua moto bem cuidada. Até onde quase ninguém olha.</p><button onClick={() => setPrivacy(true)}>POLÍTICA DE PRIVACIDADE</button></footer>
-    {privacy && <div className="modal"><article><button onClick={() => setPrivacy(false)}>×</button><p className="eyebrow black">PRIVACIDADE</p><h2>SEUS DADOS.<br /><em>SEUS DIREITOS.</em></h2><p>Esta página não armazena dados em banco de dados. Nome, serviço, veículo, data e horário são usados apenas para montar a mensagem enviada por você ao WhatsApp da Toque Final.</p><h3>CONTEÚDOS DE TERCEIROS</h3><p>O mapa é carregado somente após sua ação. Ao carregá-lo, dados como o endereço IP podem ser tratados pelo provedor do mapa conforme a política de privacidade dele.</p><h3>SEUS DIREITOS</h3><p>Você pode solicitar confirmação, acesso, correção ou eliminação dos seus dados de atendimento pelo WhatsApp oficial da Toque Final.</p></article></div>}
+    <footer><img src="/v-detalhes-logo.png" alt="Vdetalhes" /><p>Sua moto bem cuidada. Até onde quase ninguém olha.</p><button onClick={() => setPrivacy(true)}>POLÍTICA DE PRIVACIDADE</button></footer>
+    {privacy && <div className="modal"><article><button onClick={() => setPrivacy(false)}>×</button><p className="eyebrow black">PRIVACIDADE</p><h2>SEUS DADOS.<br /><em>SEUS DIREITOS.</em></h2><p>Esta página não armazena dados em banco de dados. Nome, serviço, veículo, data e horário são usados apenas para montar a mensagem enviada por você ao WhatsApp da Vdetalhes.</p><h3>CONTEÚDOS DE TERCEIROS</h3><p>O mapa é carregado somente após sua ação. Ao carregá-lo, dados como o endereço IP podem ser tratados pelo provedor do mapa conforme a política de privacidade dele.</p><h3>SEUS DIREITOS</h3><p>Você pode solicitar confirmação, acesso, correção ou eliminação dos seus dados de atendimento pelo WhatsApp oficial da Vdetalhes.</p></article></div>}
   </main>;
 }
