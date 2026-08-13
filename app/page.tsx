@@ -3,10 +3,15 @@
 import { useEffect, useState, type CSSProperties } from "react";
 
 const services = [
-  { name: "Detalhamento de motos", short: "Limpeza criteriosa das áreas visíveis e dos pontos que a lavagem comum não alcança." },
+  { name: "Lavagem detalhada", short: "Limpeza criteriosa das áreas visíveis e dos pontos que a lavagem comum não alcança." },
+
+  { name: "Polimento", short: "Correção cuidadosa para recuperar brilho, profundidade e presença na pintura." },
+
   { name: "Vitrificação", short: "Proteção para preservar o acabamento e facilitar os cuidados na rotina." },
-  { name: "Polimento técnico", short: "Correção cuidadosa para recuperar brilho, profundidade e presença na pintura." },
-  { name: "Detalhamento automotivo", short: "O cuidado da Vdetalhes também para quem quer ver o carro bem tratado." },
+
+  { name: "Higienização interna", short: "Limpeza profunda do interior para remover sujeiras, resíduos e odores acumulados." },
+
+  { name: "Revitalização de plásticos", short: "Tratamento para recuperar a aparência e a uniformidade dos componentes plásticos." },
 ];
 
 const weekdayTimes = ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00"];
@@ -14,20 +19,31 @@ const sundayTimes = ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:0
 
 const reviews = [
   { name: "Lucas r15", avatar: "/avaliacao-lucas.png", service: "Avaliação nas redes sociais", text: "Fiz o detalhamento e curti muito o resultado. Ficou limpa de verdade, até nos cantinhos que a gente nem lembra." },
+
   { name: "Carlos Henri", avatar: "/avaliacao-carlos.png", service: "Avaliação nas redes sociais", text: "Os homi é bom, cheguei com a moto só o cardume, saiu só o mel 🍯👏" },
+
   { name: "Livia santos", avatar: "/avaliacao-livia.png", service: "Avaliação nas redes sociais", text: "A qualidade do serviço deles é surreal, Grata pelo cuidado 🫶" },
+
   { name: "João ygor", avatar: "/avaliacao-joao-ruan.png", service: "Avaliação nas redes sociais", text: "Os caras manjam muito!" },
+
   { name: "Ruan carvalho", avatar: "/avaliacao-joao-ruan.png", service: "Avaliação nas redes sociais", text: "Ficou chave demais 🔥" },
+
   { name: "Yasmin vanscon", avatar: "/avaliacao-yasmin.jpg", service: "Avaliação nas redes sociais", text: "Eu só queria dar uma melhorada e saí de lá apaixonada kkk ficou linda demais." },
+
   { name: "Pedro luc", avatar: "/avaliacao-pedro.png", service: "Avaliação nas redes sociais", text: "Os caras manjam muito!" },
 ];
 
 const workResults = [
   { title: "Lavagem detalhada", label: "TRABALHO REAL", description: "Limpeza criteriosa para devolver presença ao conjunto, das áreas abertas aos pontos que a lavagem comum não alcança.", before: "/resultado-lavagem-antes.jpg", after: "/resultado-lavagem-depois.jpg", real: true },
+
   { title: "Lavagem estágio 1", label: "CUIDADO ESSENCIAL", description: "Uma limpeza bem direcionada para remover a sujeira da rotina e recuperar a leitura limpa do conjunto, sem atalhos no acabamento.", before: "/resultado-estagio1-antes.jpg", after: "/resultado-estagio1-depois.jpg", real: true },
+
   { title: "Polimento + lavagem detalhada", label: "CORREÇÃO + LIMPEZA", description: "Primeiro, a sujeira sai de onde costuma ficar. Depois, a pintura recebe correção para recuperar uniformidade, profundidade e presença.", before: "/resultado-polimento-detalhada-antes.jpg", after: "/resultado-polimento-detalhada-depois.jpg", real: true },
+
   { title: "Lavagem detalhada", label: "SUJEIRA PESADA", description: "Barro acumulado em carenagens, rodas, motor e cantos difíceis removido com critério, respeitando cada material.", before: "/resultado-lavagem-trilha-antes.jpg", after: "/resultado-lavagem-trilha-depois.jpg", real: true },
+
   { title: "Vitrificação de pintura", label: "PROTEÇÃO DE PINTURA", description: "Preparação e proteção da pintura para destacar a cor, aprofundar o brilho e facilitar os cuidados da rotina.", before: "/resultado-vitrificacao-antes.jpg", after: "/resultado-vitrificacao-depois.jpg", real: true },
+
   { title: "Lavagem + polimento", label: "LIMPEZA + CORREÇÃO", description: "Limpeza completa e correção da pintura para devolver contraste, acabamento e presença sem mascarar o estado da moto.", before: "/resultado-lavagem-polimento-antes.jpg", after: "/resultado-lavagem-polimento-depois.jpg", real: true },
 ];
 
@@ -102,33 +118,33 @@ export default function Home() {
 
   return <main>
     <header className="header">
-      <a href="#inicio" className="logo"><img src="/v-detalhes-logo.png" alt="Vdetalhes Estética Automotiva" /></a>
+      <a href="#inicio" className="logo"><img src="/garagem-logo.png" alt="Garagem estética automotiva" /></a>
       <nav className={menu ? "nav open" : "nav"}>
-        <a href="#sobre" onClick={() => setMenu(false)}>A Vdetalhes</a><a href="#servicos" onClick={() => setMenu(false)}>Tratamentos</a><a href="#resultados" onClick={() => setMenu(false)}>O cuidado</a><a href="#agenda" onClick={() => setMenu(false)}>Agendar</a>
+        <a href="#sobre" onClick={() => setMenu(false)}>A Garagem estética automotiva</a><a href="#servicos" onClick={() => setMenu(false)}>Tratamentos</a><a href="#resultados" onClick={() => setMenu(false)}>O cuidado</a><a href="#agenda" onClick={() => setMenu(false)}>Agendar</a>
       </nav>
-      <button className="header-btn" onClick={go}>FALAR SOBRE MINHA MOTO ↗</button><button className="hamb" onClick={() => setMenu(!menu)} aria-label="Abrir menu"><i /><i /></button>
+      <button className="header-btn" onClick={go}>FALAR SOBRE MEU VEÍCULO ↗</button><button className="hamb" onClick={() => setMenu(!menu)} aria-label="Abrir menu"><i /><i /></button>
     </header>
 
     <section id="inicio" className="hero"><div className="hero-image" /><div className="grain" /><div className="hero-copy enter">
-      <p className="eyebrow">ESTÉTICA ESPECIALIZADA EM MOTOS · TURMALINA</p><h1>SUA MOTO<br />FALA POR VOCÊ.<br /><em>O ACABAMENTO TAMBÉM.</em></h1>
-      <p>Não é sobre esconder a sujeira com brilho. É sobre tratar pintura, metais, plásticos e cada área exposta com o cuidado certo — para sua moto voltar a chamar atenção pelos motivos certos.</p>
-      <button className="action" onClick={go}>QUERO CUIDAR DA MINHA MOTO <b>→</b></button></div>
+      <p className="eyebrow">ESTÉTICA ESPECIALIZADA EM VEICULOS · ARAÇUAI</p><h1>NÃO É SÓ<br />UM VEÍCULO.<br /><em> E O CUIDADO MOSTRA ISSO.</em></h1>
+      <p>Não é sobre esconder a sujeira com brilho. É sobre tratar Pintura, plásticos e metais. Acabamentos pedem cuidados diferentes. Aqui, cada parte recebe a atenção certa para preservar aquilo que você faz questão de manter impecável.</p>
+      <button className="action" onClick={go}>QUERO CUIDAR DO MEU VEÍCULO <b>→</b></button></div>
       <div className="hero-numbers enter"><b>+1000<small>CLIENTES SATISFEITOS</small></b><b>4.104<small>SEGUIDORES NO INSTAGRAM</small></b></div>
     </section>
 
-    <section id="sobre" className="about section"><div className="about-mobile-heading enter"><p className="eyebrow black">POR QUE UMA MOTO EXIGE OUTRO OLHAR</p><h2>NÃO É SÓ LAVAR.<br />É SABER <em>ONDE TOCAR.</em></h2></div><div className="about-photo enter" /><div className="enter">
-      <p className="eyebrow black">POR QUE UMA MOTO EXIGE OUTRO OLHAR</p><h2>NÃO É SÓ LAVAR.<br />É SABER <em>ONDE TOCAR.</em></h2>
-      <p className="body">Na moto, tudo fica à mostra: motor, rodas, parafusos, pintura, plásticos e cantos difíceis. Um produto errado ou uma execução apressada pode marcar exatamente o que deveria valorizar. Por isso, antes de começar, observamos o estado da moto e definimos o cuidado adequado para cada superfície.</p>
-      <div className="values"><div><b>01 · OBSERVAR</b><span>Entender o estado da moto e o resultado que você busca.</span></div><div><b>02 · TRATAR</b><span>Escolher processo e produto de acordo com cada material.</span></div><div><b>03 · FINALIZAR</b><span>Conferir o conjunto até que o cuidado apareça por inteiro.</span></div></div>
+    <section id="sobre" className="about section"><div className="about-mobile-heading enter"><p className="eyebrow black">POR QUE SEU VEÍCULO EXIGE OUTRO OLHAR</p><h2>NÃO É SÓ LIMPAR.<br />É SABER <em>COMO CUIDAR.</em></h2></div><div className="about-photo enter" /><div className="enter">
+      <p className="eyebrow black">POR QUE SEU VEÍCULO EXIGE OUTRO OLHAR</p><h2>NÃO É SÓ LIMPAR.<br />É SABER <em>COMO CUIDAR.</em></h2>
+      <p className="body">Cada superfície pede um cuidado diferente. Pintura, plásticos, metais, vidros e acabamentos reagem de formas distintas a produtos e técnicas. Por isso, antes de começar, entendemos o estado do veículo e escolhemos o processo certo para cada área — sem atalhos, excessos ou soluções genéricas..</p>
+      <div className="values"><div><b>01 · OBSERVAR</b><span>Entender o estado do veículo e identificar o que realmente precisa de atenção.</span></div><div><b>02 · TRATAR</b><span>Escolher a técnica e os produtos certos para cada superfície.</span></div><div><b>03 · FINALIZAR</b><span>Revisar o conjunto e garantir que o resultado apareça por inteiro.</span></div></div>
     </div></section>
 
-    <section id="servicos" className="services section"><div className="enter"><p className="eyebrow">TRATAMENTOS</p><h2>O QUE A SUA MOTO<br /><em>PRECISA AGORA?</em></h2><p className="services-lead">Nem toda moto precisa do mesmo serviço. O ponto de partida é entender o uso, o estado atual e o acabamento que você espera.</p></div>
+    <section id="servicos" className="services section"><div className="enter"><p className="eyebrow">TRATAMENTOS</p><h2>O QUE O SEU VEÍCULO<br /><em>PRECISA AGORA?</em></h2><p className="services-lead">Nem todo veículo precisa do mesmo serviço. O ponto de partida é entender o uso, o estado atual e o acabamento que você espera.</p></div>
       <div className="service-list enter">{services.map((item, index) => <article key={item.name}><b>0{index + 1}</b><h3>{item.name}</h3><p>{item.short}</p><button onClick={() => { setService(item.name); go(); }}>QUERO ENTENDER ↗</button></article>)}</div>
     </section>
 
     <section id="resultados" className="results section"><div className="results-intro enter"><div><p className="eyebrow black">O RESULTADO COMEÇA ANTES DO BRILHO</p><p className="body">O reflexo chama atenção. O cuidado bem-feito aparece na uniformidade, nos cantos limpos e na forma como cada material recupera presença.</p></div><h2>VOCÊ VÊ O BRILHO.<br /><em>A GENTE VÊ CADA ETAPA.</em></h2></div>
       <div className="result-showcase enter"><div className="result-main"><span>ACABAMENTO</span><div><b>PROTEÇÃO E PRESENÇA</b><small>PINTURA · METAIS · PLÁSTICOS · DETALHES</small></div></div><div className="result-side"><article><i>01</i><strong>CANTOS QUE A LAVAGEM COMUM IGNORA</strong></article><article><i>02</i><strong>ACABAMENTO SEM MAQUIAGEM</strong></article></div></div>
-      <div className="result-bar enter"><span>CUIDADO DE PONTA A PONTA</span><span>ATENÇÃO A CADA MATERIAL</span><span>VDETALHES · TURMALINA</span></div>
+      <div className="result-bar enter"><span>CUIDADO DE PONTA A PONTA</span><span>ATENÇÃO A CADA MATERIAL</span><span>GARAGEM ESTÉTICA AUTOMOTIVA · TURMALINA</span></div>
     </section>
 
     <section id="galeria-resultados" className="work-results-section" aria-labelledby="work-results-title" onMouseEnter={() => setResultsPaused(true)} onMouseLeave={() => setResultsPaused(false)} onFocusCapture={() => setResultsPaused(true)} onBlurCapture={() => setResultsPaused(false)}>
@@ -141,15 +157,15 @@ export default function Home() {
         })}
       </div>
       <div className="work-results-controls"><button onClick={() => setResultSlide((current) => (current - 1 + workResults.length) % workResults.length)} aria-label="Resultado anterior">←</button><div>{workResults.map((result, index) => <button key={`${result.title}-${index}`} className={resultSlide === index ? "active" : ""} onClick={() => setResultSlide(index)} aria-label={`Mostrar ${result.title}`} aria-current={resultSlide === index ? "true" : undefined} />)}</div><button onClick={() => setResultSlide((current) => (current + 1) % workResults.length)} aria-label="Próximo resultado">→</button></div>
-      <div className="work-results-stats enter"><article><strong>+1000</strong><p>CLIENTES<br />SATISFEITOS</p></article><article><strong>03</strong><p>TRATAMENTOS<br />PRINCIPAIS</p></article><article><strong>1 A 1</strong><p>CADA MOTO RECEBE<br />UMA LEITURA DIFERENTE</p></article></div>
+      <div className="work-results-stats enter"><article><strong>+1000</strong><p>CLIENTES<br />SATISFEITOS</p></article><article><strong>03</strong><p>TRATAMENTOS<br />PRINCIPAIS</p></article><article><strong>1 A 1</strong><p>CADA VEÍCULO RECEBE<br />UMA LEITURA DIFERENTE</p></article></div>
     </section>
 
-    <section className="feedback section"><div className="enter"><p className="eyebrow">PARA QUEM NÃO ENTREGA A MOTO A QUALQUER UM</p><h2><span>CAPRICHO NÃO É</span><br /><em>EXTRA. É O<br />MÍNIMO.</em></h2><p className="feedback-number">1 A 1<small>CADA MOTO PEDE UMA LEITURA DIFERENTE</small></p></div>
-      <div className="testimonials enter"><article><span>01</span><blockquote>Você explica o que incomoda e o resultado que espera.</blockquote><cite>ESCUTA ANTES DE OFERECER UM SERVIÇO</cite></article><article><span>02</span><blockquote>A moto é avaliada antes de definir o melhor caminho.</blockquote><cite>CRITÉRIO ANTES DE PRODUTO</cite></article><article><span>03</span><blockquote>Você recebe uma recomendação coerente com o estado dela.</blockquote><cite>SEM EMPURRAR O QUE A MOTO NÃO PRECISA</cite></article></div>
+    <section className="feedback section"><div className="enter"><p className="eyebrow">PARA QUEM NÃO ENTREGA O VEÍCULO A QUALQUER UM</p><h2><span>CAPRICHO NÃO É</span><br /><em>EXTRA. É O<br />MÍNIMO.</em></h2><p className="feedback-number">1 A 1<small>CADA VEÍCULO PEDE UMA LEITURA DIFERENTE</small></p></div>
+      <div className="testimonials enter"><article><span>01</span><blockquote>Você explica o que incomoda e o resultado que espera.</blockquote><cite>ESCUTA ANTES DE OFERECER UM SERVIÇO</cite></article><article><span>02</span><blockquote>O veículo é avaliado antes de definir o melhor caminho.</blockquote><cite>CRITÉRIO ANTES DE PRODUTO</cite></article><article><span>03</span><blockquote>Você recebe uma recomendação coerente com o estado dele.</blockquote><cite>SEM EMPURRAR O QUE O VEÍCULO NÃO PRECISA</cite></article></div>
     </section>
 
     <section id="avaliacoes" className="reviews-section" aria-labelledby="reviews-title">
-      <div className="reviews-heading enter"><div><p className="eyebrow">AVALIAÇÕES</p><h2 id="reviews-title">QUEM VÊ O RESULTADO,<br /><em>ENTENDE O CUIDADO.</em></h2></div><p>Experiências de quem confiou a moto à Vdetalhes e viu o cuidado no resultado.<small>RELATOS DAS REDES SOCIAIS</small></p></div>
+      <div className="reviews-heading enter"><div><p className="eyebrow">AVALIAÇÕES</p><h2 id="reviews-title">QUEM VÊ O RESULTADO,<br /><em>ENTENDE O CUIDADO.</em></h2></div><p>Experiências de quem confiou o veículo à Garagem estética automotiva e viu o cuidado no resultado.<small>RELATOS DAS REDES SOCIAIS</small></p></div>
       <div className="reviews-marquee" aria-label="Avaliações em movimento contínuo">
         <div className="reviews-track">
           {["a", "b"].map((group) => <div className="reviews-group" key={group} aria-hidden={group === "b"}>{reviews.map((review) => <ReviewCard key={`${group}-${review.name}`} review={review} />)}</div>)}
@@ -161,13 +177,13 @@ export default function Home() {
       </div>
     </section>
 
-    <section id="agenda" className="booking section"><div className="booking-title enter"><p className="eyebrow black">VAMOS OLHAR PARA A SUA MOTO?</p><h2><span>CONTE O QUE</span><br /><span>ELA PRECISA.</span><br /><em>A GENTE<br />ORIENTA.</em></h2><p className="body">Escolha o serviço que mais se aproxima do que você procura. A mensagem chega pronta no WhatsApp e, antes de confirmar, conversamos sobre a moto e alinhamos o atendimento.</p><p className="hours">SEGUNDA A SÁBADO · 08:00 — 18:00</p><a href="https://wa.me/5533999522052?text=Ol%C3%A1!%20Quero%20entender%20qual%20%C3%A9%20o%20melhor%20cuidado%20para%20a%20minha%20moto." target="_blank" rel="noreferrer">PREFIRO CONVERSAR DIRETO ↗</a></div>
-      <form className="booking-form enter" onSubmit={book}><label>QUAL CUIDADO VOCÊ PROCURA?<select required value={service} onChange={(event) => setService(event.target.value)}><option value="" disabled>Selecione uma opção</option>{services.map((item) => <option key={item.name}>{item.name}</option>)}</select></label><label>COM QUEM VAMOS FALAR?<input required value={name} onChange={(event) => setName(event.target.value)} placeholder="Seu nome" /></label><label>QUAL É A SUA MOTO OU VEÍCULO?<input required value={vehicle} onChange={(event) => setVehicle(event.target.value)} placeholder="Ex.: Honda CG 160 Fan" /></label><div className="date-row"><label>MELHOR DATA<input required type="date" value={date} onChange={(event) => { setDate(event.target.value); setTime(""); }} /></label><label>MELHOR HORÁRIO<select required value={time} onChange={(event) => setTime(event.target.value)} disabled={!date}><option value="" disabled>{date ? "Escolha um horário" : "Escolha a data primeiro"}</option>{availableTimes.map((item) => <option key={item}>{item}</option>)}</select></label></div><label className="check"><input type="checkbox" required /><span>Li e concordo que estas informações serão usadas somente para encaminhar minha solicitação pelo WhatsApp, conforme a <button type="button" onClick={() => setPrivacy(true)}>Política de Privacidade</button>.</span></label><button className="action submit">CONVERSAR SOBRE MINHA MOTO <b>→</b></button></form>
+    <section id="agenda" className="booking section"><div className="booking-title enter"><p className="eyebrow black">VAMOS OLHAR PARA O SEU VEÍCULO?</p><h2><span>CONTE O QUE</span><br /><span>ELA PRECISA.</span><br /><em>A GENTE<br />ORIENTA.</em></h2><p className="body">Escolha o serviço que mais se aproxima do que você procura. A mensagem chega pronta no WhatsApp e, antes de confirmar, conversamos sobre o veículo e alinhamos o atendimento.</p><p className="hours">SEGUNDA A SÁBADO · 08:00 — 18:00</p><a href="https://wa.me/5533999522052?text=Ol%C3%A1!%20Quero%20entender%20qual%20%C3%A9%20o%20melhor%20cuidado%20para%20o%20meu%20veículo." target="_blank" rel="noreferrer">PREFIRO CONVERSAR DIRETO ↗</a></div>
+      <form className="booking-form enter" onSubmit={book}><label>QUAL CUIDADO VOCÊ PROCURA?<select required value={service} onChange={(event) => setService(event.target.value)}><option value="" disabled>Selecione uma opção</option>{services.map((item) => <option key={item.name}>{item.name}</option>)}</select></label><label>COM QUEM VAMOS FALAR?<input required value={name} onChange={(event) => setName(event.target.value)} placeholder="Seu nome" /></label><label>QUAL É O SEU VEÍCULO?<input required value={vehicle} onChange={(event) => setVehicle(event.target.value)} placeholder="Ex.: Honda CG 160 Fan" /></label><div className="date-row"><label>MELHOR DATA<input required type="date" value={date} onChange={(event) => { setDate(event.target.value); setTime(""); }} /></label><label>MELHOR HORÁRIO<select required value={time} onChange={(event) => setTime(event.target.value)} disabled={!date}><option value="" disabled>{date ? "Escolha um horário" : "Escolha a data primeiro"}</option>{availableTimes.map((item) => <option key={item}>{item}</option>)}</select></label></div><label className="check"><input type="checkbox" required /><span>Li e concordo que estas informações serão usadas somente para encaminhar minha solicitação pelo WhatsApp, conforme a <button type="button" onClick={() => setPrivacy(true)}>Política de Privacidade</button>.</span></label><button className="action submit">CONVERSAR SOBRE MEU VEÍCULO <b>→</b></button></form>
     </section>
 
-    <section className="location"><div className="map">{mapConsent ? <iframe title="Mapa da Detalhes Estética Automotiva" src="https://www.google.com/maps?q=R.+Zuza+Cordeiro,+695+-+S%C3%A3o+Jo%C3%A3o+Batista,+Turmalina+-+MG,+39660-000&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" /> : <div className="map-consent"><p className="eyebrow">LOCALIZAÇÃO</p><h3>SUA MOTO<br />CHEGA AQUI.<br /><em>O CUIDADO COMEÇA.</em></h3><p>O mapa só é carregado quando você decide visualizá-lo.</p><button className="map-button" onClick={() => setMapConsent(true)}>VER NO MAPA <b>↗</b></button></div>}</div><div className="location-copy enter"><p className="eyebrow">DETALHES · TURMALINA</p><h2>TRAGA A MOTO.<br /><em>CONTE O QUE INCOMODA.</em></h2><address>R. Zuza Cordeiro, 695<br />São João Batista · Turmalina — MG<br />39660-000</address><div className="location-details"><span>WHATSAPP</span><b>(33) 99952-2052</b><span>ATENDIMENTO</span><b>Segunda a sábado · 08h às 18h</b></div><a href="https://www.google.com/maps/search/?api=1&query=R.+Zuza+Cordeiro,+695+-+S%C3%A3o+Jo%C3%A3o+Batista,+Turmalina+-+MG,+39660-000" target="_blank" rel="noreferrer">COMO CHEGAR ↗</a></div></section>
+    <section className="location"><div className="map">{mapConsent ? <iframe title="Mapa da Garagem estética automotiva" src="https://www.google.com/maps?q=Rua+Marechal+Deodoro,+188-240,+Ara%C3%A7ua%C3%AD+-+MG,+39600-140,+Brasil&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" /> : <div className="map-consent"><p className="eyebrow">LOCALIZAÇÃO</p><h3>SEU VEÍCULO<br />CHEGA AQUI.<br /><em>O CUIDADO COMEÇA.</em></h3><p>O mapa só é carregado quando você decide visualizá-lo.</p><button className="map-button" onClick={() => setMapConsent(true)}>VER NO MAPA <b>↗</b></button></div>}</div><div className="location-copy enter"><p className="eyebrow">GARAGEM ESTÉTICA AUTOMOTIVA · ARAÇUAÍ</p><h2>TRAGA O VEÍCULO.<br /><em>CONTE O QUE INCOMODA.</em></h2><address>Rua Marechal Deodoro, 188–240<br />Araçuaí — MG<br />39600-140 · Brasil</address><div className="location-details"><span>WHATSAPP</span><b>(33) 99952-2052</b><span>ATENDIMENTO</span><b>Segunda a sábado · 08h às 18h</b></div><a href="https://www.google.com/maps/search/?api=1&query=Rua+Marechal+Deodoro,+188-240,+Ara%C3%A7ua%C3%AD+-+MG,+39600-140,+Brasil" target="_blank" rel="noreferrer">COMO CHEGAR ↗</a></div></section>
 
-    <footer><img src="/v-detalhes-logo.png" alt="Vdetalhes" /><p>Sua moto bem cuidada. Até onde quase ninguém olha.</p><button onClick={() => setPrivacy(true)}>POLÍTICA DE PRIVACIDADE</button></footer>
-    {privacy && <div className="modal"><article><button onClick={() => setPrivacy(false)}>×</button><p className="eyebrow black">PRIVACIDADE</p><h2>SEUS DADOS.<br /><em>SEUS DIREITOS.</em></h2><p>Esta página não armazena dados em banco de dados. Nome, serviço, veículo, data e horário são usados apenas para montar a mensagem enviada por você ao WhatsApp da Vdetalhes.</p><h3>CONTEÚDOS DE TERCEIROS</h3><p>O mapa é carregado somente após sua ação. Ao carregá-lo, dados como o endereço IP podem ser tratados pelo provedor do mapa conforme a política de privacidade dele.</p><h3>SEUS DIREITOS</h3><p>Você pode solicitar confirmação, acesso, correção ou eliminação dos seus dados de atendimento pelo WhatsApp oficial da Vdetalhes.</p></article></div>}
+    <footer><img src="/garagem-logo.png" alt="Garagem estética automotiva" /><p>Seu veículo bem cuidado. Até onde quase ninguém olha.</p><button onClick={() => setPrivacy(true)}>POLÍTICA DE PRIVACIDADE</button></footer>
+    {privacy && <div className="modal"><article><button onClick={() => setPrivacy(false)}>×</button><p className="eyebrow black">PRIVACIDADE</p><h2>SEUS DADOS.<br /><em>SEUS DIREITOS.</em></h2><p>Esta página não armazena dados em banco de dados. Nome, serviço, veículo, data e horário são usados apenas para montar a mensagem enviada por você ao WhatsApp da Garagem estética automotiva.</p><h3>CONTEÚDOS DE TERCEIROS</h3><p>O mapa é carregado somente após sua ação. Ao carregá-lo, dados como o endereço IP podem ser tratados pelo provedor do mapa conforme a política de privacidade dele.</p><h3>SEUS DIREITOS</h3><p>Você pode solicitar confirmação, acesso, correção ou eliminação dos seus dados de atendimento pelo WhatsApp oficial da Garagem estética automotiva.</p></article></div>}
   </main>;
 }
