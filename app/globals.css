@@ -18,6 +18,7 @@
   .hero{height:760px;min-height:760px}
   .hero-copy{top:150px;max-width:680px}
   .hero-copy h1{font-size:88px;line-height:.9}
+  .hero-copy h1 em{white-space:nowrap}
   .about>div:last-child>.body{margin-top:22px}
   .hero-copy>p:not(.eyebrow){max-width:460px;margin:22px 0}
   .hero-numbers{bottom:30px}
@@ -133,5 +134,14 @@
 .work-result-card.demo .comparison-before{filter:grayscale(.72) brightness(.7) saturate(.65)}
 .review-avatar{object-fit:cover;object-position:center}
 
-.header .logo img{width:120px;height:72px}footer img{width:112px;height:70px}
-@media(max-width:720px){.header .logo img{width:98px;height:59px}}
+.header .logo img{width:142px;height:76px;object-fit:cover;object-position:center}footer img{width:112px;height:70px}
+.whatsapp-float{display:none}
+@media(max-width:720px){
+  .header .logo img{width:112px;height:62px}
+  .whatsapp-float{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:25;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--red);box-shadow:0 10px 26px rgba(0,0,0,.32);animation:whatsapp-float 3.4s ease-in-out infinite;isolation:isolate}
+  .whatsapp-float:before{content:'';position:absolute;inset:5px;border-radius:inherit;background:rgba(227,18,27,.42);filter:blur(11px);z-index:-1}
+  .whatsapp-float span{width:28px;height:28px;background:#fff;-webkit-mask:url('/whatsapp-monochrome-icon.svg') center/contain no-repeat;mask:url('/whatsapp-monochrome-icon.svg') center/contain no-repeat}
+  .whatsapp-float:active{animation:none;transform:scale(.94)}
+}
+@keyframes whatsapp-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@media(prefers-reduced-motion:reduce){.whatsapp-float{animation:none}}

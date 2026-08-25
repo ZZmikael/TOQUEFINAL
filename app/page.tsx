@@ -90,7 +90,7 @@ export default function Home() {
   const availableTimes = date && new Date(`${date}T12:00:00`).getDay() === 0 ? sundayTimes : weekdayTimes;
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add("in")), { threshold: 0.12 });
+    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => entry.target.classList.toggle("in", entry.isIntersecting)), { threshold: 0.12 });
     document.querySelectorAll(".enter").forEach((element) => observer.observe(element));
     return () => observer.disconnect();
   }, []);
@@ -118,15 +118,15 @@ export default function Home() {
 
   return <main>
     <header className="header">
-      <a href="#inicio" className="logo"><img src="/garagem-logo.png" alt="Garagem estética automotiva" /></a>
+      <a href="#inicio" className="logo"><img src="/manrik-logo.png" alt="Manrik Estética Automotiva" /></a>
       <nav className={menu ? "nav open" : "nav"}>
-        <a href="#sobre" onClick={() => setMenu(false)}>A Garagem estética automotiva</a><a href="#servicos" onClick={() => setMenu(false)}>Tratamentos</a><a href="#resultados" onClick={() => setMenu(false)}>O cuidado</a><a href="#agenda" onClick={() => setMenu(false)}>Agendar</a>
+        <a href="#sobre" onClick={() => setMenu(false)}>Manrik estética automotiva</a><a href="#servicos" onClick={() => setMenu(false)}>Tratamentos</a><a href="#resultados" onClick={() => setMenu(false)}>O cuidado</a><a href="#agenda" onClick={() => setMenu(false)}>Agendar</a>
       </nav>
       <button className="header-btn" onClick={go}>FALAR SOBRE MEU VEÍCULO ↗</button><button className="hamb" onClick={() => setMenu(!menu)} aria-label="Abrir menu"><i /><i /></button>
     </header>
 
     <section id="inicio" className="hero"><div className="hero-image" /><div className="grain" /><div className="hero-copy enter">
-      <p className="eyebrow">ESTÉTICA ESPECIALIZADA EM VEICULOS · ARAÇUAI</p><h1>NÃO É SÓ<br />UM VEÍCULO.<br /><em> E O CUIDADO MOSTRA ISSO.</em></h1>
+      <p className="eyebrow">ESTÉTICA ESPECIALIZADA EM VEÍCULOS · MORUNGABA - SP</p><h1>NÃO É SÓ<br />UM VEÍCULO.<br /><em> E O CUIDADO MOSTRA ISSO.</em></h1>
       <p>Não é sobre esconder a sujeira com brilho. É sobre tratar Pintura, plásticos e metais. Acabamentos pedem cuidados diferentes. Aqui, cada parte recebe a atenção certa para preservar aquilo que você faz questão de manter impecável.</p>
       <button className="action" onClick={go}>QUERO CUIDAR DO MEU VEÍCULO <b>→</b></button></div>
       <div className="hero-numbers enter"><b>+1000<small>CLIENTES SATISFEITOS</small></b><b>4.104<small>SEGUIDORES NO INSTAGRAM</small></b></div>
@@ -144,7 +144,7 @@ export default function Home() {
 
     <section id="resultados" className="results section"><div className="results-intro enter"><div><p className="eyebrow black">O RESULTADO COMEÇA ANTES DO BRILHO</p><p className="body">O reflexo chama atenção. O cuidado bem-feito aparece na uniformidade, nos cantos limpos e na forma como cada material recupera presença.</p></div><h2>VOCÊ VÊ O BRILHO.<br /><em>A GENTE VÊ CADA ETAPA.</em></h2></div>
       <div className="result-showcase enter"><div className="result-main"><span>ACABAMENTO</span><div><b>PROTEÇÃO E PRESENÇA</b><small>PINTURA · METAIS · PLÁSTICOS · DETALHES</small></div></div><div className="result-side"><article><i>01</i><strong>CANTOS QUE A LAVAGEM COMUM IGNORA</strong></article><article><i>02</i><strong>ACABAMENTO SEM MAQUIAGEM</strong></article></div></div>
-      <div className="result-bar enter"><span>CUIDADO DE PONTA A PONTA</span><span>ATENÇÃO A CADA MATERIAL</span><span>GARAGEM ESTÉTICA AUTOMOTIVA · TURMALINA</span></div>
+      <div className="result-bar enter"><span>CUIDADO DE PONTA A PONTA</span><span>ATENÇÃO A CADA MATERIAL</span><span>MANRIK ESTÉTICA AUTOMOTIVA · MORUNGABA - SP</span></div>
     </section>
 
     <section id="galeria-resultados" className="work-results-section" aria-labelledby="work-results-title" onMouseEnter={() => setResultsPaused(true)} onMouseLeave={() => setResultsPaused(false)} onFocusCapture={() => setResultsPaused(true)} onBlurCapture={() => setResultsPaused(false)}>
@@ -165,7 +165,7 @@ export default function Home() {
     </section>
 
     <section id="avaliacoes" className="reviews-section" aria-labelledby="reviews-title">
-      <div className="reviews-heading enter"><div><p className="eyebrow">AVALIAÇÕES</p><h2 id="reviews-title">QUEM VÊ O RESULTADO,<br /><em>ENTENDE O CUIDADO.</em></h2></div><p>Experiências de quem confiou o veículo à Garagem estética automotiva e viu o cuidado no resultado.<small>RELATOS DAS REDES SOCIAIS</small></p></div>
+      <div className="reviews-heading enter"><div><p className="eyebrow">AVALIAÇÕES</p><h2 id="reviews-title">QUEM VÊ O RESULTADO,<br /><em>ENTENDE O CUIDADO.</em></h2></div><p>Experiências de quem confiou o veículo à Manrik estética automotiva e viu o cuidado no resultado.<small>RELATOS DAS REDES SOCIAIS</small></p></div>
       <div className="reviews-marquee" aria-label="Avaliações em movimento contínuo">
         <div className="reviews-track">
           {["a", "b"].map((group) => <div className="reviews-group" key={group} aria-hidden={group === "b"}>{reviews.map((review) => <ReviewCard key={`${group}-${review.name}`} review={review} />)}</div>)}
@@ -177,13 +177,14 @@ export default function Home() {
       </div>
     </section>
 
-    <section id="agenda" className="booking section"><div className="booking-title enter"><p className="eyebrow black">VAMOS OLHAR PARA O SEU VEÍCULO?</p><h2><span>CONTE O QUE</span><br /><span>ELA PRECISA.</span><br /><em>A GENTE<br />ORIENTA.</em></h2><p className="body">Escolha o serviço que mais se aproxima do que você procura. A mensagem chega pronta no WhatsApp e, antes de confirmar, conversamos sobre o veículo e alinhamos o atendimento.</p><p className="hours">SEGUNDA A SÁBADO · 08:00 — 18:00</p><a href="https://wa.me/5533999522052?text=Ol%C3%A1!%20Quero%20entender%20qual%20%C3%A9%20o%20melhor%20cuidado%20para%20o%20meu%20veículo." target="_blank" rel="noreferrer">PREFIRO CONVERSAR DIRETO ↗</a></div>
+    <section id="agenda" className="booking section"><div className="booking-title enter"><p className="eyebrow black">VAMOS OLHAR PARA O SEU VEÍCULO?</p><h2><span>CONTE O QUE</span><br /><span>ELE PRECISA.</span><br /><em>A GENTE<br />ORIENTA.</em></h2><p className="body">Escolha o serviço que mais se aproxima do que você procura. A mensagem chega pronta no WhatsApp e, antes de confirmar, conversamos sobre o veículo e alinhamos o atendimento.</p><p className="hours">SEGUNDA A SÁBADO · 08:00 — 18:00</p><a href="https://wa.me/5533999522052?text=Ol%C3%A1!%20Quero%20entender%20qual%20%C3%A9%20o%20melhor%20cuidado%20para%20o%20meu%20veículo." target="_blank" rel="noreferrer">PREFIRO CONVERSAR DIRETO ↗</a></div>
       <form className="booking-form enter" onSubmit={book}><label>QUAL CUIDADO VOCÊ PROCURA?<select required value={service} onChange={(event) => setService(event.target.value)}><option value="" disabled>Selecione uma opção</option>{services.map((item) => <option key={item.name}>{item.name}</option>)}</select></label><label>COM QUEM VAMOS FALAR?<input required value={name} onChange={(event) => setName(event.target.value)} placeholder="Seu nome" /></label><label>QUAL É O SEU VEÍCULO?<input required value={vehicle} onChange={(event) => setVehicle(event.target.value)} placeholder="Ex.: Honda CG 160 Fan" /></label><div className="date-row"><label>MELHOR DATA<input required type="date" value={date} onChange={(event) => { setDate(event.target.value); setTime(""); }} /></label><label>MELHOR HORÁRIO<select required value={time} onChange={(event) => setTime(event.target.value)} disabled={!date}><option value="" disabled>{date ? "Escolha um horário" : "Escolha a data primeiro"}</option>{availableTimes.map((item) => <option key={item}>{item}</option>)}</select></label></div><label className="check"><input type="checkbox" required /><span>Li e concordo que estas informações serão usadas somente para encaminhar minha solicitação pelo WhatsApp, conforme a <button type="button" onClick={() => setPrivacy(true)}>Política de Privacidade</button>.</span></label><button className="action submit">CONVERSAR SOBRE MEU VEÍCULO <b>→</b></button></form>
     </section>
 
-    <section className="location"><div className="map">{mapConsent ? <iframe title="Mapa da Garagem estética automotiva" src="https://www.google.com/maps?q=Rua+Marechal+Deodoro,+188-240,+Ara%C3%A7ua%C3%AD+-+MG,+39600-140,+Brasil&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" /> : <div className="map-consent"><p className="eyebrow">LOCALIZAÇÃO</p><h3>SEU VEÍCULO<br />CHEGA AQUI.<br /><em>O CUIDADO COMEÇA.</em></h3><p>O mapa só é carregado quando você decide visualizá-lo.</p><button className="map-button" onClick={() => setMapConsent(true)}>VER NO MAPA <b>↗</b></button></div>}</div><div className="location-copy enter"><p className="eyebrow">GARAGEM ESTÉTICA AUTOMOTIVA · ARAÇUAÍ</p><h2>TRAGA O VEÍCULO.<br /><em>CONTE O QUE INCOMODA.</em></h2><address>Rua Marechal Deodoro, 188–240<br />Araçuaí — MG<br />39600-140 · Brasil</address><div className="location-details"><span>WHATSAPP</span><b>(33) 99952-2052</b><span>ATENDIMENTO</span><b>Segunda a sábado · 08h às 18h</b></div><a href="https://www.google.com/maps/search/?api=1&query=Rua+Marechal+Deodoro,+188-240,+Ara%C3%A7ua%C3%AD+-+MG,+39600-140,+Brasil" target="_blank" rel="noreferrer">COMO CHEGAR ↗</a></div></section>
+    <section className="location"><div className="map">{mapConsent ? <iframe title="Mapa da Manrik estética automotiva" src="https://www.google.com/maps?q=Morungaba+-+SP&output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" /> : <div className="map-consent"><p className="eyebrow">LOCALIZAÇÃO</p><h3>SEU VEÍCULO<br />CHEGA AQUI.<br /><em>O CUIDADO COMEÇA.</em></h3><p>O mapa só é carregado quando você decide visualizá-lo.</p><button className="map-button" onClick={() => setMapConsent(true)}>VER NO MAPA <b>↗</b></button></div>}</div><div className="location-copy enter"><p className="eyebrow">MANRIK ESTÉTICA AUTOMOTIVA · MORUNGABA - SP</p><h2>TRAGA O VEÍCULO.<br /><em>CONTE O QUE INCOMODA.</em></h2><address>Morungaba - SP</address><div className="location-details"><span>WHATSAPP</span><b>(33) 99952-2052</b><span>ATENDIMENTO</span><b>Segunda a sábado · 08h às 18h</b></div><a href="https://www.google.com/maps/search/?api=1&query=Morungaba+-+SP" target="_blank" rel="noreferrer">COMO CHEGAR ↗</a></div></section>
 
-    <footer><img src="/garagem-logo.png" alt="Garagem estética automotiva" /><p>Seu veículo bem cuidado. Até onde quase ninguém olha.</p><button onClick={() => setPrivacy(true)}>POLÍTICA DE PRIVACIDADE</button></footer>
-    {privacy && <div className="modal"><article><button onClick={() => setPrivacy(false)}>×</button><p className="eyebrow black">PRIVACIDADE</p><h2>SEUS DADOS.<br /><em>SEUS DIREITOS.</em></h2><p>Esta página não armazena dados em banco de dados. Nome, serviço, veículo, data e horário são usados apenas para montar a mensagem enviada por você ao WhatsApp da Garagem estética automotiva.</p><h3>CONTEÚDOS DE TERCEIROS</h3><p>O mapa é carregado somente após sua ação. Ao carregá-lo, dados como o endereço IP podem ser tratados pelo provedor do mapa conforme a política de privacidade dele.</p><h3>SEUS DIREITOS</h3><p>Você pode solicitar confirmação, acesso, correção ou eliminação dos seus dados de atendimento pelo WhatsApp oficial da Garagem estética automotiva.</p></article></div>}
+    <a className="whatsapp-float" href="https://wa.me/5533999522052?text=Ol%C3%A1!%20Quero%20entender%20qual%20%C3%A9%20o%20melhor%20cuidado%20para%20o%20meu%20veículo." target="_blank" rel="noreferrer" aria-label="Conversar pelo WhatsApp"><span aria-hidden="true" /></a>
+    <footer><img src="/manrik-logo.png" alt="Manrik Estética Automotiva" /><p>Seu veículo bem cuidado. Até onde quase ninguém olha.</p><button onClick={() => setPrivacy(true)}>POLÍTICA DE PRIVACIDADE</button></footer>
+    {privacy && <div className="modal"><article><button onClick={() => setPrivacy(false)}>×</button><p className="eyebrow black">PRIVACIDADE</p><h2>SEUS DADOS.<br /><em>SEUS DIREITOS.</em></h2><p>Esta página não armazena dados em banco de dados. Nome, serviço, veículo, data e horário são usados apenas para montar a mensagem enviada por você ao WhatsApp da Manrik estética automotiva.</p><h3>CONTEÚDOS DE TERCEIROS</h3><p>O mapa é carregado somente após sua ação. Ao carregá-lo, dados como o endereço IP podem ser tratados pelo provedor do mapa conforme a política de privacidade dele.</p><h3>SEUS DIREITOS</h3><p>Você pode solicitar confirmação, acesso, correção ou eliminação dos seus dados de atendimento pelo WhatsApp oficial da Manrik estética automotiva.</p></article></div>}
   </main>;
 }
